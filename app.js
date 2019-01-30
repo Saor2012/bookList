@@ -9,6 +9,23 @@ function Book(title, author, isbn) {
 
 function UI() {}
 
+UI.prototype.addBookToList = function(book) {
+  const list = document.getElementById('book-list')
+
+  // Create tr
+  const row = document.createElement('tr')
+
+  // Insert cols
+
+  row.innerHTML = `
+    <td>${book.title}</td>
+    <td>${book.author}</td>
+    <td>${book.isbn}</td>
+    <td><button>X</button></td>
+  `
+
+  list.appendChild(row)
+}
 
 // Event listeners
 
@@ -28,6 +45,5 @@ document.getElementById('book-form').addEventListener('submit', function(e) {
   // Add book to list
   ui.addBookToList(book)
 
-  console.log(book)
   e.preventDefault()
 })
